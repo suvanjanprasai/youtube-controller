@@ -1,3 +1,5 @@
+# Any http(s) server can be used, but remember to allow CORS.
+
 import socket
 import json
 
