@@ -1,0 +1,2 @@
+#HOW IT WORKS
+The chrome extension has a background.js file that runs on the background when the browser starts. The background.js constantly sends requests to a http(s) server. If the server sends control query such as: resume, pause, mute, unmute, forward, rewind, the background.js checks if the response is valid i.e. is one of the control query. If it control query, then it does what is in the control query.
