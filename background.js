@@ -5,7 +5,6 @@ function makeRequest(url) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       
-      // Parse JSON response
       return response.json().then(data => {
         const message = data.message;
         if (message === 'pause' || message === 'resume' || message === 'mute' || message === 'unmute' || message === 'forward' || message === 'rewind') {
@@ -13,7 +12,6 @@ function makeRequest(url) {
           chrome.tabs.query({}, function(tabs){
             tabs.forEach(tab => {
               if (tab.url.includes('youtube.com')) {
-                // Execute content script and pass message as a parameter
                 chrome.scripting.executeScript({
                   target: {tabId: tab.id},
                   function: executeContentScript,
