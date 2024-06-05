@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "J.A.S.M.I.N.E's Youtube Controller",
+  "version": "3.0",
+  "description": "This extension controls youtube player from an external flask server linked to J.A.S.M.I.N.E; virtual assistant.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://www.youtube.com/*"
+],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "index.html"
+  }
+  
+}
